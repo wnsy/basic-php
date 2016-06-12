@@ -1,5 +1,6 @@
 <?php
 include('inc/data.php');
+include('inc/functions.php');
 
 $pageTitle = "Full Catalog";
 $section = null;
@@ -26,12 +27,15 @@ include 'inc/header.php'; ?>
 
     <h1><?php echo $pageTitle; ?></h1>
     <ul class="items">
-      <?php foreach ($catalog as $item) {
-        echo "<li><a href = '#'><img src='"
-            . $item["img"] . "'alt='"
-            . $item["title"] . "' />"
-            . "View Details</p>"
-            . "</a></li>";
+      <!--Modify foreach to display id.
+      The ID = key for the single item we have
+      loaded into our var.
+
+      For each item now, as we loop through
+      them one at a time, we pass the item
+      ->
+      <?php foreach ($catalog as $id => $item) {
+          echo get_item_html($id, $item);
       }
       ?>
 
