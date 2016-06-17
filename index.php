@@ -13,9 +13,24 @@ include ('inc/header.php'); ?>
 		<h2>May we suggest something?</h2>
 
 		<ul class="items">
+			<!--Increase Randomness
+			When using array_rand, the resulting array of keys is NOT shuffled,
+			the books will always come before movies, which will come before music.
+			If you want to randomize these even further you could use the shuffle
+			function as well.
+
+ 			Example:
+			$random =array_rand($catalog,4);
+			shuffle($random);
+			-->
+
 			<?php
-			foreach ($catalog as $id => $item) {
-				echo get_item_html($id, $item);
+			$random = array_rand($catalog, 4);
+			//var_dump($random);
+			foreach ($random as $id) {
+				echo get_item_html($id, $catalog[$id]);
+				//var_dump($id);
+				//var_dump($catalog[$id]);
 			}
 			?>
 		</ul>
